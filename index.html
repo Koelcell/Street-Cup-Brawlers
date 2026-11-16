@@ -171,16 +171,24 @@ function setupTouch(){if(!MOBILE||TOUCH.on)return;TOUCH.on=true;
  #tc .b{position:absolute;pointer-events:auto;border-radius:50%;border:3px solid rgba(255,255,255,.55);background:rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;flex-direction:column;text-shadow:0 1px 0 #000;touch-action:none;-webkit-user-select:none;user-select:none}
  #tc .b span{font-size:11px;font-weight:bold}#tc .b.on{background:rgba(248,216,0,.45);border-color:#f8d800}
  #tc .s{border-radius:10px;width:64px;height:26px;font-size:11px}
- #js{position:absolute;left:3vw;bottom:5vh;width:36vh;height:36vh;max-width:170px;max-height:170px;min-width:110px;min-height:110px;border-radius:50%;border:3px solid rgba(255,255,255,.4);background:rgba(0,0,0,.22);pointer-events:auto;touch-action:none}
- #knob{position:absolute;left:50%;top:50%;width:42%;height:42%;margin:-21% 0 0 -21%;border-radius:50%;background:rgba(255,255,255,.45);border:3px solid rgba(255,255,255,.7)}
- @media (orientation:portrait){#tc{display:none}}`;document.head.appendChild(css);
+ #dp{position:absolute;left:3vw;bottom:6vh;width:40vh;height:40vh;max-width:176px;max-height:176px;min-width:120px;min-height:120px;pointer-events:auto;touch-action:none}
+#dp i{position:absolute;background:rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.55);box-sizing:border-box;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-style:normal;font-size:16px}
+#dp i.on{background:rgba(248,216,0,.45);border-color:#f8d800;color:#fff}
+#dp .u{left:33.3%;top:0;width:33.4%;height:36%;border-radius:8px 8px 0 0;border-bottom:none}
+#dp .d{left:33.3%;bottom:0;width:33.4%;height:36%;border-radius:0 0 8px 8px;border-top:none}
+#dp .l{left:0;top:33.3%;width:36%;height:33.4%;border-radius:8px 0 0 8px;border-right:none}
+#dp .r{right:0;top:33.3%;width:36%;height:33.4%;border-radius:0 8px 8px 0;border-left:none}
+#dp .c{left:33.3%;top:33.3%;width:33.4%;height:33.4%;border:none;background:rgba(0,0,0,.35)}
+@media (orientation:portrait){#tc{display:none}}`;document.head.appendChild(css);
  const tc=document.createElement('div');tc.id='tc';document.body.appendChild(tc);
- const js=document.createElement('div');js.id='js';js.innerHTML='<div id="knob"></div>';tc.appendChild(js);const knob=js.firstChild;
- let jid=null;const setDir=(dx,dy)=>{const m=Math.hypot(dx,dy),t=0.35;keys.KeyA=dx<-t;keys.KeyD=dx>t;keys.KeyW=dy<-t;keys.KeyS=dy>t;TOUCH.run=m>0.88;const k=Math.min(1,m);knob.style.transform=`translate(${(m?dx/m*k:0)*48}%,${(m?dy/m*k:0)*48}%)`;};
- const jmove=e=>{const r=js.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,R0=r.width/2;setDir((e.clientX-cx)/R0,(e.clientY-cy)/R0);};
- js.addEventListener('pointerdown',e=>{jid=e.pointerId;try{js.setPointerCapture(jid);}catch(_){}jmove(e);e.preventDefault();});
- js.addEventListener('pointermove',e=>{if(e.pointerId===jid)jmove(e);});
- const jend=e=>{if(e.pointerId!==jid)return;jid=null;setDir(0,0);};js.addEventListener('pointerup',jend);js.addEventListener('pointercancel',jend);
+ const dp=document.createElement('div');dp.id='dp';dp.innerHTML='<i class="u">&#9650;</i><i class="d">&#9660;</i><i class="l">&#9664;</i><i class="r">&#9654;</i><i class="c"></i>';tc.appendChild(dp);
+ const arm={u:dp.querySelector('.u'),d:dp.querySelector('.d'),l:dp.querySelector('.l'),r:dp.querySelector('.r')};
+ let jid=null;const setDir=(dx,dy)=>{const t=0.3;const L=dx<-t,R=dx>t,U=dy<-t,D=dy>t;keys.KeyA=L;keys.KeyD=R;keys.KeyW=U;keys.KeyS=D;TOUCH.run=false;
+  arm.l.classList.toggle('on',L);arm.r.classList.toggle('on',R);arm.u.classList.toggle('on',U);arm.d.classList.toggle('on',D);};
+ const jmove=e=>{const r=dp.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,R0=r.width/2;setDir((e.clientX-cx)/R0,(e.clientY-cy)/R0);};
+ dp.addEventListener('pointerdown',e=>{jid=e.pointerId;try{dp.setPointerCapture(jid);}catch(_){}jmove(e);e.preventDefault();});
+ dp.addEventListener('pointermove',e=>{if(e.pointerId===jid)jmove(e);});
+ const jend=e=>{if(e.pointerId!==jid)return;jid=null;setDir(0,0);};dp.addEventListener('pointerup',jend);dp.addEventListener('pointercancel',jend);
  const B=[['KeyF','',LG('PUNCH','SLAAN'),'right:3vw;bottom:17vh'],['KeyH','',LG('JUMP','SPRING'),'right:calc(3vw + 70px);bottom:17vh'],
   ['KeyV','',LG('BLOCK','BLOK'),'right:calc(3vw + 70px);bottom:calc(17vh + 70px)'],['KeyG','',LG('KICK','TRAP'),'right:3vw;bottom:calc(17vh + 70px)']];
  const mk=(code,lab,sub,pos,cls)=>{const b=document.createElement('div');b.className='b'+(cls?' '+cls:'');b.style.cssText=pos+(cls?'':';width:62px;height:62px');b.innerHTML=cls?lab:'<span>'+sub+'</span>';tc.appendChild(b);
