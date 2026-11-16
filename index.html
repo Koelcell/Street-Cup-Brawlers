@@ -19,12 +19,35 @@ html,body{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-to
 #rot .ph{width:46px;height:80px;border:4px solid #f8d800;border-radius:8px;animation:rt 1.6s ease-in-out infinite}
 @keyframes rt{0%,20%{transform:rotate(0)}60%,100%{transform:rotate(-90deg)}}
 @media (orientation:portrait) and (pointer:coarse){#rot{display:flex}}
+#inst{position:fixed;inset:0;z-index:20;display:none;background:rgba(0,0,8,.94);color:#fcfcfc;font:bold 15px monospace;text-align:center;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;box-sizing:border-box}
+#inst h1{margin:0;font-size:24px;color:#f8d800;text-shadow:2px 2px 0 #b03000}
+#inst .ib{pointer-events:auto;border:3px solid #f8d800;background:#b02010;color:#fff;font:bold 17px monospace;padding:12px 22px;border-radius:10px}
+#inst .ib.alt{background:transparent;border-color:#a0a0a0;color:#d0d0d0;font-size:13px;padding:8px 16px}
+#inst p{margin:0;max-width:520px;line-height:1.5;color:#d8d8d8}
 #crt{position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.12) 3px)}
 </style>
 </head>
 <body>
 <canvas id="c" width="426" height="240"></canvas>
 <div id="crt"></div>
+<div id="inst"><h1>STREET CUP BRAWLERS</h1><p id="instT"></p><button class="ib" id="instB" style="display:none">INSTALL APP</button><button class="ib alt" id="instP">PLAY IN BROWSER</button></div>
+<script>
+(function(){let dp=null;const ov=document.getElementById('inst'),T=document.getElementById('instT'),B=document.getElementById('instB');
+ const q=location.search+location.hash,want=/install/i.test(q);
+ const standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||(window.matchMedia&&matchMedia('(display-mode: fullscreen)').matches)||navigator.standalone;
+ const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+ const nl=/^nl/i.test(navigator.language||'');const L=(e,n)=>nl?n:e;
+ function show(){if(standalone){return;}ov.style.display='flex';
+  if(dp){B.style.display='block';T.innerHTML=L('Install the game as an app on this device.<br>Fullscreen, offline, with its own icon.','Installeer het spel als app op dit toestel.<br>Volledig scherm, offline, met eigen icoon.');}
+  else if(ios){T.innerHTML=L('On iPhone / iPad (Safari):<br>1. Tap the <b>Share</b> button &#x2B06;&#xFE0E;<br>2. Choose <b>Add to Home Screen</b><br>3. Tap <b>Add</b>','Op iPhone / iPad (Safari):<br>1. Tik op de <b>Deel</b>-knop &#x2B06;&#xFE0E;<br>2. Kies <b>Zet op beginscherm</b><br>3. Tik op <b>Voeg toe</b>');}
+  else T.innerHTML=L('Preparing install&hellip;<br><br>No button after a few seconds? Open the browser menu <b>&#x22EE;</b> and choose <b>Install app</b> (or <b>Add to Home screen</b>).','Installatie wordt voorbereid&hellip;<br><br>Na een paar seconden geen knop? Open het browsermenu <b>&#x22EE;</b> en kies <b>App installeren</b> (of <b>Toevoegen aan startscherm</b>).');}
+ addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;if(ov.style.display==='flex')show();});
+ addEventListener('appinstalled',()=>{ov.style.display='none';});
+ B.addEventListener('click',async e=>{e.stopPropagation();if(!dp)return;dp.prompt();try{await dp.userChoice;}catch(_){}dp=null;ov.style.display='none';});
+ document.getElementById('instP').addEventListener('click',e=>{e.stopPropagation();ov.style.display='none';});
+ ['pointerdown','touchend'].forEach(t=>ov.addEventListener(t,e=>e.stopPropagation()));
+ if(want)show();})();
+</script>
 <div id="rot"><div class="ph"></div><div id="rotT">ROTATE YOUR PHONE<br>DRAAI JE TELEFOON</div><div style="font-size:12px;color:#a0a0a0">TAP = FULLSCREEN</div></div>
 <script>
 'use strict';

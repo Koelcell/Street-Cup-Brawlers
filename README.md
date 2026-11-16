@@ -4,6 +4,16 @@ A retro NES-style mash-up of **Double Dragon** and **Nintendo World Cup**: socce
 
 The whole game is a single HTML file (`index.html`): pixel art, music and sound effects are all generated in code. There is nothing to install.
 
+<p align="center">
+  <a href="https://koelcell.github.io/Street-Cup-Brawlers/"><img alt="Start game" src="https://img.shields.io/badge/%E2%96%B6%20START%20GAME-play%20in%20your%20browser-d02818?style=for-the-badge"></a>
+  &nbsp;
+  <a href="https://koelcell.github.io/Street-Cup-Brawlers/?install"><img alt="Install app" src="https://img.shields.io/badge/%F0%9F%93%B1%20INSTALL%20APP-phone%20%26%20tablet-f0a800?style=for-the-badge"></a>
+</p>
+
+**Start game** opens the game right in your browser. **Install app** opens the same game with an install screen:
+- Android: tap **INSTALL APP**.
+- iPhone/iPad: follow the short Safari steps on screen (Share → Add to Home Screen).
+
 ![Title screen](media/title.png)
 
 ## Modes
