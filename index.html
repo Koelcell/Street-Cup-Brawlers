@@ -195,7 +195,7 @@ function setupTouch(){if(!MOBILE||TOUCH.on)return;TOUCH.on=true;
   const dn=e=>{keys[code]=true;b.classList.add('on');try{b.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();try{auInit();if(AU.ac&&AU.ac.state==='suspended')AU.ac.resume();}catch(_){}};
   const up=()=>{keys[code]=false;b.classList.remove('on');};b.addEventListener('pointerdown',dn);b.addEventListener('pointerup',up);b.addEventListener('pointercancel',up);b.addEventListener('lostpointercapture',up);};
  for(const q of B)mk(...q);
- mk('Enter','START','', 'left:50%;top:2vh;margin-left:4px','s');mk('Escape',LG('BACK','TERUG'),'','left:50%;top:2vh;margin-left:-72px','s');}
+ mk('Enter','START','', 'left:50%;bottom:4px;margin-left:4px','s');mk('Escape',LG('BACK','TERUG'),'','left:50%;bottom:4px;margin-left:-72px','s');}
 addEventListener('keydown',e=>{auInit();if(AU.ac&&AU.ac.state==='suspended')AU.ac.resume();keys[e.code]=true;
  if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code))e.preventDefault();
  if(e.code==='KeyM'&&!e.repeat)AU.mus=!AU.mus;if(e.code==='KeyN'&&!e.repeat)AU.on=!AU.on;});
