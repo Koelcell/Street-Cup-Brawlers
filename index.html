@@ -171,14 +171,14 @@ function setupTouch(){if(!MOBILE||TOUCH.on)return;TOUCH.on=true;
  #tc .b{position:absolute;pointer-events:auto;border-radius:50%;border:3px solid rgba(255,255,255,.55);background:rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;flex-direction:column;text-shadow:0 1px 0 #000;touch-action:none;-webkit-user-select:none;user-select:none}
  #tc .b span{font-size:11px;font-weight:bold}#tc .b.on{background:rgba(248,216,0,.45);border-color:#f8d800}
  #tc .s{border-radius:10px;width:64px;height:26px;font-size:11px}
- #dp{position:absolute;left:calc(env(safe-area-inset-left,0px) + 6px);bottom:6px;width:40vh;height:40vh;max-width:176px;max-height:176px;min-width:120px;min-height:120px;pointer-events:auto;touch-action:none}
-#dp i{position:absolute;background:rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.55);box-sizing:border-box;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-style:normal;font-size:16px}
-#dp i.on{background:rgba(248,216,0,.45);border-color:#f8d800;color:#fff}
-#dp .u{left:33.3%;top:0;width:33.4%;height:36%;border-radius:8px 8px 0 0;border-bottom:none}
-#dp .d{left:33.3%;bottom:0;width:33.4%;height:36%;border-radius:0 0 8px 8px;border-top:none}
-#dp .l{left:0;top:33.3%;width:36%;height:33.4%;border-radius:8px 0 0 8px;border-right:none}
-#dp .r{right:0;top:33.3%;width:36%;height:33.4%;border-radius:0 8px 8px 0;border-left:none}
-#dp .c{left:33.3%;top:33.3%;width:33.4%;height:33.4%;border:none;background:rgba(0,0,0,.35)}
+ #dp{position:absolute;left:2px;bottom:2px;width:32vh;height:32vh;max-width:146px;max-height:146px;min-width:108px;min-height:108px;pointer-events:auto;touch-action:none}
+#dp i{position:absolute;background:rgba(0,0,0,.42);border:3px solid rgba(255,255,255,.6);box-sizing:border-box;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.85);font-style:normal;font-size:15px}
+#dp i.on{background:rgba(248,216,0,.5);border-color:#f8d800;color:#fff}
+#dp .u{left:29%;top:0;width:42%;height:33%;border-radius:7px 7px 0 0;border-bottom:none}
+#dp .d{left:29%;bottom:0;width:42%;height:33%;border-radius:0 0 7px 7px;border-top:none}
+#dp .l{left:0;top:29%;width:33%;height:42%;border-radius:7px 0 0 7px;border-right:none}
+#dp .r{right:0;top:29%;width:33%;height:42%;border-radius:0 7px 7px 0;border-left:none}
+#dp .c{left:29%;top:29%;width:42%;height:42%;border:none;background:rgba(0,0,0,.42)}
 @media (orientation:portrait){#tc{display:none}}`;document.head.appendChild(css);
  const tc=document.createElement('div');tc.id='tc';document.body.appendChild(tc);
  const dp=document.createElement('div');dp.id='dp';dp.innerHTML='<i class="u">&#9650;</i><i class="d">&#9660;</i><i class="l">&#9664;</i><i class="r">&#9654;</i><i class="c"></i>';tc.appendChild(dp);
@@ -189,8 +189,8 @@ function setupTouch(){if(!MOBILE||TOUCH.on)return;TOUCH.on=true;
  dp.addEventListener('pointerdown',e=>{jid=e.pointerId;try{dp.setPointerCapture(jid);}catch(_){}jmove(e);e.preventDefault();});
  dp.addEventListener('pointermove',e=>{if(e.pointerId===jid)jmove(e);});
  const jend=e=>{if(e.pointerId!==jid)return;jid=null;setDir(0,0);};dp.addEventListener('pointerup',jend);dp.addEventListener('pointercancel',jend);
- const B=[['KeyG','',LG('KICK','TRAP'),'right:calc(env(safe-area-inset-right,0px) + 6px);bottom:6px'],['KeyF','',LG('PUNCH','SLAAN'),'right:calc(env(safe-area-inset-right,0px) + 74px);bottom:6px'],
-  ['KeyH','',LG('JUMP','SPRING'),'right:calc(env(safe-area-inset-right,0px) + 6px);bottom:74px'],['KeyV','',LG('BLOCK','BLOK'),'right:calc(env(safe-area-inset-right,0px) + 74px);bottom:74px']];
+ const B=[['KeyG','',LG('KICK','TRAP'),'right:2px;bottom:2px'],['KeyF','',LG('PUNCH','SLAAN'),'right:70px;bottom:2px'],
+  ['KeyH','',LG('JUMP','SPRING'),'right:2px;bottom:70px'],['KeyV','',LG('BLOCK','BLOK'),'right:70px;bottom:70px']];
  const mk=(code,lab,sub,pos,cls)=>{const b=document.createElement('div');b.className='b'+(cls?' '+cls:'');b.style.cssText=pos+(cls?'':';width:62px;height:62px');b.innerHTML=cls?lab:'<span>'+sub+'</span>';tc.appendChild(b);
   const dn=e=>{keys[code]=true;b.classList.add('on');try{b.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();try{auInit();if(AU.ac&&AU.ac.state==='suspended')AU.ac.resume();}catch(_){}};
   const up=()=>{keys[code]=false;b.classList.remove('on');};b.addEventListener('pointerdown',dn);b.addEventListener('pointerup',up);b.addEventListener('pointercancel',up);b.addEventListener('lostpointercapture',up);};
