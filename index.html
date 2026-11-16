@@ -1632,7 +1632,7 @@ class Story{
   if(this.cfg.demo){}else if(P==='intro'||(P==='play'&&this.pt<110&&this.wi===0&&!this.waveOn&&this.cam<20)){if(this.pt<110){box(HW-120,82,240,36);text(S.name,HW,90,'#f8d800',1);text(LG('FIGHT YOUR WAY TO THE STADIUM!','VECHT JE WEG NAAR HET STADION!'),HW,104,'#fcfcfc',1);}}
   if(P==='bossintro'){fr(ctx,'rgba(120,0,0,0.8)',0,88,W,44);text(LG('WARNING! BOSS','LET OP! EINDBAAS'),HW,94,(G.t&8)?'#fcfcfc':'#fc5050',1);text(this.bossName,HW,108,'#f8d800',1,2);}
   if(P==='clear'&&!this.cfg.demo){box(HW-120,26,240,196);text(this.si<STAGES.length-1?LG('STAGE CLEAR!','STAGE GEHAALD!'):LG('CHAMPIONS!','KAMPIOENEN!'),HW,34,'#f8d800',1,2);text('BONUS '+this.bonus+'   '+LG('TIME ','TIJD ')+fmtT(this.clearT||0),HW,54,'#fcfcfc',1);
-   hsTable(60,70,LG('HIGH SCORES','HIGHSCORES'),HS.story.map(e=>[e.n,String(e.s)]),this.hlS);hsTable(60,132,LG('BEST TIMES - STAGE ','BESTE TIJDEN - STAGE ')+(this.si+1),(HS.times[this.si]||[]).map(e=>[LG('CLEAR','UIT'),fmtT(e.t)]),this.hlT);
+   hsTable(HW-64,70,LG('HIGH SCORES','HIGHSCORES'),HS.story.map(e=>[e.n,String(e.s)]),this.hlS);hsTable(HW-64,132,LG('BEST TIMES - STAGE ','BESTE TIJDEN - STAGE ')+(this.si+1),(HS.times[this.si]||[]).map(e=>[LG('CLEAR','UIT'),fmtT(e.t)]),this.hlT);
    if(this.pt>120&&(G.t&16))text(LG('PRESS F / ENTER','DRUK OP F / ENTER'),HW,208,'#a0a0a0',1);}
   if(this.goT>0&&(G.t&16))text('GO! >',W-8,96,'#f8d800',2,2);}
  drawFxFloor(cam){for(const f of this.fx){const x=Math.round(f.x-cam),y=Math.round(f.y);

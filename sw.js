@@ -1,6 +1,6 @@
 // Street Cup Brawlers - offline cache
 // Network first (so updates show up right away), cache as fallback when offline.
-const CACHE = 'scb-v10';
+const CACHE = 'scb-v11';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
