@@ -1,8 +1,8 @@
 # Street Cup Brawlers
 
-A retro NES-style mash-up of **Double Dragon** and **Nintendo World Cup**: soccer where fists are allowed, and a beat 'em up where the ball is your weapon.
+A retro NES-style mash-up of **A fighting game** and **A soccer game**: soccer where fists are allowed, and a beat 'em up where the ball is your weapon.
 
-The whole game is a single HTML file (`index.html`): pixel art, music and sound effects are all generated in code. There is nothing to install.
+The whole game is a single HTML file (`index.html`): story, pixel art, mechanics, vision, music and sound effects are all generated in code. There is nothing to install.
 
 <p align="center">
   <a href="https://koelcell.github.io/Street-Cup-Brawlers/"><img alt="Start game" src="https://img.shields.io/badge/%E2%96%B6%20START%20GAME-play%20in%20your%20browser-d02818?style=for-the-badge"></a>
@@ -38,20 +38,3 @@ The whole game is a single HTML file (`index.html`): pixel art, music and sound 
 | Super | F + G | K + L | |
 | Run | double-tap a direction | | |
 | Start / pause | Enter | | Start |
-
-On a phone you get a joystick plus PUNCH, JUMP, BLOCK and KICK buttons. The game switches to landscape full screen automatically.
-
-## Playing
-
-- **On a computer:** open `index.html` in a browser.
-- **Online (GitHub Pages):** go to *Settings → Pages* and set the source to *Deploy from a branch*, branch `main`, folder `/ (root)`. The game will then be at `https://koelcell.github.io/street-cup-brawlers/`.
-- **As an app on your phone:** open the GitHub Pages link.
-  - Android (Chrome): ⋮ → *Install app*.
-  - iPhone (Safari): Share → *Add to Home Screen*.
-  - It works offline after the first launch.
-
-## Files
-
-- `index.html`: the complete game.
-- `manifest.webmanifest`, `sw.js`, `icon-*.png`: what makes the game installable as an app and playable offline.
-- `screenshots/`: the development process in images, in chronological order.
