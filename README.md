@@ -4,7 +4,6 @@
 
 ![Brawl Weekly cover](media/brawl-weekly-cover.gif)
 
-> The images below are snapshots. Open [`brawl-weekly.html`](brawl-weekly.html) in a browser for the full magazine: animated sprites, the live controller diagram, the upgrade slot machine, clickable wanted posters, sound and the hidden cheat codes.
 
 ## Cover story
 ![The pitch](media/bw-pitch.png)
