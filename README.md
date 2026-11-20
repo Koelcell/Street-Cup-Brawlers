@@ -1,6 +1,4 @@
-# Brawl Weekly — Street Cup Brawlers
 
-**Issue #1 · summer 1989 · the one-page design document for _Street Cup Brawlers_**, a retro beat-'em-up that crashes into a dirty soccer brawl.
 
 ![Brawl Weekly cover](media/brawl-weekly-cover.gif)
 
