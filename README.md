@@ -1,5 +1,34 @@
 # Brawl Weekly — Street Cup Brawlers
 
-Issue #1 (summer 1989) of **Brawl Weekly**, the one-page design document for *Street Cup Brawlers*: a retro beat-'em-up / soccer-brawl game.
+**Issue #1 · summer 1989 · the one-page design document for _Street Cup Brawlers_**, a retro beat-'em-up that crashes into a dirty soccer brawl.
 
-Open [`brawl-weekly.html`](brawl-weekly.html) in a browser. It covers the pitch, the lore, game modes, controls, mechanics, the bosses, the stage map, and the problems solved during development, with real game screenshots, animated sprites and a few hidden extras.
+![Brawl Weekly cover](media/brawl-weekly-cover.gif)
+
+> The images below are snapshots. Open [`brawl-weekly.html`](brawl-weekly.html) in a browser for the full magazine: animated sprites, the live controller diagram, the upgrade slot machine, clickable wanted posters, sound and the hidden cheat codes.
+
+## Cover story
+![The pitch](media/bw-pitch.png)
+
+## The lore: the summer of '89
+![Lore](media/bw-lore.png)
+
+## Game modes
+![Game modes](media/bw-modes.png)
+
+## How to brawl
+![Controls](media/bw-controls.png)
+
+## Mechanics and the upgrade slot machine
+![Mechanics](media/bw-mechanics.png)
+
+## Rogues gallery
+![Rogues gallery](media/bw-rogues.png)
+
+## Stage map
+![Stage map](media/bw-map.png)
+
+## Ask the Brawl Doc: problems and creative fixes
+![Letters page](media/bw-letters.png)
+
+## Tech specs, reader poll and our sponsor
+![Specs](media/bw-specs.png)
