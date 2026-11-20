@@ -1,5 +1,8 @@
 # Street Cup Brawlers
 
+**Design document:** [Brawl Weekly, issue #1](brawl-weekly.html), a one-page magazine about the game's modes, mechanics, lore and dev fixes (open it via GitHub Pages or download and open in a browser).
+
+
 A retro NES-style mash-up of **A fighting game** and **A soccer game**: soccer where fists are allowed, and a beat 'em up where the ball is your weapon.
 
 The whole game is a single HTML file (`index.html`): story, pixel art, mechanics, vision, music and sound effects are all generated in code. There is nothing to install.
