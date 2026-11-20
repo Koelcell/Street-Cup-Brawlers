@@ -257,7 +257,6 @@ body.turbo main{animation:shake .25s infinite}
  <h2 class="slam">The summer of '89, as told by Dad</h2>
  <p style="margin-top:12px">Story mode is a bedtime story that keeps getting less believable. Dad tells his kids how he won the streets back from Captain Chaos and his hooligans. Every stage is one of his tall tales; every cut-scene ends with a kid calling him out. By the last stage the room itself is coming apart.</p>
  <div class="comic" id="comic"></div>
- <div id="chapters"></div>
 </div></section>
 
 <section class="band" id="modes"><div class="wrap">
@@ -410,19 +409,6 @@ if(!RM)requestAnimationFrame(loop);else RUN.forEach((r,i)=>r.el.style.left=(40+i
 /* ---------- lore ---------- */
 const INTRO=[['DAD','DID I EVER TELL YOU ABOUT THE SUMMER OF 89?'],['KID','ONLY EVERY SUNDAY.'],['DAD','BACK THEN I WAS YOUNG. SWANKY. A REAL GO-GETTER.'],['DAD','THE STREETS WERE OURS AND THE BALL WAS THE LAW.'],['DAD','UNTIL CAPTAIN CHAOS AND HIS HOOLIGANS STOLE IT ALL.'],['KID','...AND YOU WON IT BACK. WE KNOW.']];
 $('#comic').innerHTML=INTRO.map((q,i)=>`<div class="panel"><span class="no">${i+1}</span><div class="who ${q[0]==='KID'?'kid':''}">${q[0]}:</div><div class="say" data-t="${esc(q[1])}"></div></div>`).join('');
-const TALE=[['Main Street','It started on Main Street. I was the coolest kid in town — hair like a lion, kick like a mule.','Cool!'],
- ['Roadworks','They were digging up the whole road. Did that stop me? I dribbled over the cranes.','Over the cranes?'],
- ['Back Alleys','Then Sledge showed up. Seven foot tall. Maybe eight. I took him down with a header.','Three meters??'],
- ['The Rail Yard','I hopped a moving train. With the ball. Blindfolded. Well… almost blindfolded.','Dad…'],
- ['The Rail Bridge','The Twins came from both ends of the bridge. Identical. Probably clones. Very advanced.','Clones? In 1989?'],
- ['The Locker Rooms','In the locker room I found the secret playbook. Every move in football? I invented it.','You did not invent the slide tackle.'],
- ['The Boiler Room','Down in the boiler room it rained balls. Two hundred degrees. I did not even break a sweat.','That is not how heat works.'],
- ['Dystopia','Then the city… changed. Screens everywhere. People glitching. Totally normal for the eighties.','Dad, why is the TV flickering?'],
- ['The Roof','Flying saucers, kids. Real ones. I knocked one out of the sky with a bicycle kick. Twice.','Mom says you get carsick.'],
- ['The Stadium','Captain Chaos and his whole team. Eleven against one. I gave them a head start.','Dad… the walls are moving.'],
- ['The Moon','So naturally I took a rocket to the Moon. To finish the job. Your mother was very impressed.','Dad. The room is coming apart.']];
-$('#chapters').innerHTML=`<div class="cols" style="margin-top:22px">`+TALE.map((t,i)=>`<div class="chap"><div class="dad"><div class="n">STAGE ${i+1} · ${esc(t[0].toUpperCase())}</div><p style="margin:6px 0 0">“${esc(t[1])}”</p></div><div class="kid"><div class="n" style="color:var(--blu)">THE KIDS</div><p style="margin:6px 0 0;font-weight:800">${esc(t[2])}</p></div></div>`).join('')+`</div>`;
-
 /* typewriter */
 function type(el){if(el.dataset.done)return;el.dataset.done=1;const t=el.dataset.t;let i=0;const step=()=>{el.textContent=t.slice(0,++i);if(i%2)blip(900+Math.random()*200,700,0.02,'square',0.015);if(i<t.length)setTimeout(step,RM?0:28);};step();}
 
